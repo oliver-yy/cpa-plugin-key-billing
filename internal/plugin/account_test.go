@@ -179,7 +179,7 @@ func TestAccountRequestErrorsCannotCrossScopes(t *testing.T) {
 	for _, apiKey := range []string{accountTestKeyA, accountTestKeyB} {
 		publishUsageRecord(t, app, UsageRecord{
 			Provider: "codex", Model: "gpt-5.5", Alias: "gpt-5.5", APIKey: apiKey,
-			Source: "error-ops@example.com",
+			Source:   "error-ops@example.com",
 			Generate: true, Failed: true, Failure: UsageFailure{StatusCode: 502,
 				Body: `{"error":{"message":"bad gateway","type":"upstream_error"}}`},
 		})
